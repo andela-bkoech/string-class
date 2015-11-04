@@ -51,7 +51,7 @@ String.prototype.isQuestion = function() {
 };
 
 String.prototype.words = function() {
-	return this.split('/\s/');
+  return this.split(/\s/);
 };
 
 String.prototype.wordCount = function() {
