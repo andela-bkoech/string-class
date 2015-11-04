@@ -43,11 +43,11 @@ String.prototype.ucFirst = function() {
 };
 
 String.prototype.isQuestion = function() {
-	if(this.match(/[a-zA-Z.;]{1,}[?]/) == null) {
-		return false;
-	}
+  if (this.match(/[a-zA-Z.;]{1,}[?]/) === null) {
+    return false;
+  }
 
-	return true;
+  return true;
 };
 
 String.prototype.words = function() {
