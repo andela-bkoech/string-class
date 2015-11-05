@@ -43,25 +43,26 @@ String.prototype.ucFirst = function() {
 };
 
 String.prototype.isQuestion = function() {
-  if (this.match(/[a-zA-Z.;]{1,}[?]/) === null) {
+  // /[a-zA-Z.;]{1,}[?]/
+  if (this.trim().match(/\?$/) === null) {
     return false;
+  } else {
+    return true;
   }
-
-  return true;
 };
 
 String.prototype.words = function() {
-  return this.split(/\s/);
+  return this.replace(/\!\@\#\$\%\^\&\*\(\)\_\+\;\:\.\,<>\?\'/, '').split(/\s/);
 };
 
 String.prototype.wordCount = function() {
-
+  return this.words().length;
 };
 
 String.prototype.toCurrency = function() {
-
+  return this.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 };
 
 String.prototype.fromCurrency = function() {
-
+  return parseFloat(this.replace(/[\,]/g, ''));
 };
