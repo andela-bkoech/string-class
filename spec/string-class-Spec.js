@@ -7,7 +7,7 @@ describe("Tests for strng class prototype", function() {
         });
 
         it("returns false if the string does'nt have vowels", function() {
-          expect("QWRTY SDFGJKL XCVNM".hasVowels()).toEqual(false);
+          expect("QWRTY SDFGJKL XCVNM".hasVowels()).toBe(false);
         });
 
       });
