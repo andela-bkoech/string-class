@@ -21,7 +21,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].hasVowels()
+        [].hasVowels();
       }).toThrowError(TypeError);
     });
 
@@ -51,7 +51,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].toUpper()
+        [].toUpper();
       }).toThrowError(TypeError);
     });
   });
@@ -72,7 +72,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].toLower()
+        [].toLower();
       }).toThrowError(TypeError);
     });
   });
@@ -93,7 +93,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].ucFirst()
+        [].ucFirst();
       }).toThrowError(TypeError);
     });
   });
@@ -109,7 +109,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].isQuestion()
+        [].isQuestion();
       }).toThrowError(TypeError);
     });
 
@@ -130,7 +130,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].words()
+        [].words();
       }).toThrowError(TypeError);
     });
 
@@ -151,7 +151,7 @@ describe("Tests for strng class prototype", function() {
 
     it("expect the error thrown to be a TypeError", function() {
       expect(function() {
-        [].wordCount()
+        [].wordCount();
       }).toThrowError(TypeError);
     });
   });
@@ -161,8 +161,16 @@ describe("Tests for strng class prototype", function() {
       expect("11111.11".toCurrency()).toBe("11,111.11");
     });
 
-    it("expect a currency rep of a string", function() {
-      expect().toBe();
+    it("expect $10000000 to return $10,000,000", function() {
+      expect("$10000000".toCurrency()).toBe("$10,000,000");
+    });
+
+    it("expect $230000.58 to return $230,000.58", function() {
+      expect("$230000.58".toCurrency()).toBe("$230,000.58");
+    });
+
+    it("Throws error if value is not a currency", function() {
+      expect("Kshs. 47824HU92.9H".toCurrency()).toThrow();
     });
   });
 
@@ -173,6 +181,6 @@ describe("Tests for strng class prototype", function() {
 
     it("expect return type to be a number", function() {
       expect(typeof "123,123.11".fromCurrency()).toEqual('number');
-    })
+    });
   });
 });
