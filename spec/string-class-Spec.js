@@ -6,8 +6,27 @@ describe("Tests for strng class prototype", function() {
       expect("Javascript is everywhere".hasVowels()).toBe(true);
     });
 
-    it("returns false if the string does'nt have vowels", function() {
+    it("returns false if the string doesn't have vowels", function() {
       expect("QWRTY SFGJKL XVNM".hasVowels()).toBe(false);
+    });
+
+    it("expect to throw an error", function() {
+      expect(function() {
+        [].hasVowels();
+      }).toThrow();
+      expect(function() {
+        ["sometext"].hasVowels();
+      }).toThrow();
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].hasVowels()
+      }).toThrowError(TypeError);
+    });
+
+    it("expects return type to be boolean", function() {
+      expect(typeof "will return string".hasVowels()).toBe('boolean');
     });
 
   });
@@ -16,13 +35,24 @@ describe("Tests for strng class prototype", function() {
 
     it("returns the string in uppercase", function() {
       expect("my name is brian koech".toUpper()).toBe("MY NAME IS BRIAN KOECH");
-      expect("this is amazing".toUpper()).toBe("this is amazing".toUpperCase());
       expect("string".toUpper()).toContain("STRING");
       expect("this is Andela".toUpper()).toBe("this is Andela".toUpperCase());
     });
 
     it("expect return type to be a string", function() {
       expect(typeof("this is amazing".toUpper())).toBe('string');
+    });
+
+    it("expect to throw an error", function() {
+      expect(function() {
+        [].toUpper();
+      }).toThrow();
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].toUpper()
+      }).toThrowError(TypeError);
     });
   });
 
@@ -32,18 +62,39 @@ describe("Tests for strng class prototype", function() {
       expect("TELEVISION netWORK".toLower()).toBe("television network");
     });
 
-    it("expect the value unchanged for number", function() {
+    it("expect the value unchanged for a number", function() {
       expect("123".toLower()).toBe('123');
+    });
+
+    it("expect not word chars to be ignored", function() {
+      expect("'!@#$%^&*(").toBe("'!@#$%^&*(");
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].toLower()
+      }).toThrowError(TypeError);
     });
   });
 
   describe("Test suite for ucFirst() method", function() {
     it("changes the first char to uppercase", function() {
       expect("this is okey".ucFirst()).toBe("This is okey");
+      expect("okey".ucFirst()[0]).toBe("O");
+    });
+
+    it("return type is string", function() {
+      expect(typeof "return something".ucFirst()).toBe('string');
     });
 
     it("remains unchanged if the first char is uppercase", function() {
       expect("I am".ucFirst()).toBe("I am");
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].ucFirst()
+      }).toThrowError(TypeError);
     });
   });
 
@@ -54,6 +105,16 @@ describe("Tests for strng class prototype", function() {
 
     it("returns false if string isn't a question", function() {
       expect("Nairobi is in Kenya.".isQuestion()).toBe(false);
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].isQuestion()
+      }).toThrowError(TypeError);
+    });
+
+    it("expects return type to be boolean", function() {
+      expect(typeof "GitHub vs Bitbucket.".isQuestion()).toBe('boolean');
     });
   });
 
@@ -66,6 +127,16 @@ describe("Tests for strng class prototype", function() {
     it("return type is an array", function() {
       expect(Array.isArray("i am very pleased".words())).toBe(true);
     });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].words()
+      }).toThrowError(TypeError);
+    });
+
+    it("expects the array to have content", function() {
+      expect("Javascript is not java".words()[0]).toBeDefined();
+    });
   });
 
   describe("Test suite for wordCount() method", function() {
@@ -76,6 +147,12 @@ describe("Tests for strng class prototype", function() {
 
     it("expects return type to be a number", function() {
       expect(typeof "this is an example".wordCount()).toBe('number');
+    });
+
+    it("expect the error thrown to be a TypeError", function() {
+      expect(function() {
+        [].wordCount()
+      }).toThrowError(TypeError);
     });
   });
 
