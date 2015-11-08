@@ -10,7 +10,7 @@
   String.prototype.hasVowels = function() {
     this.isString();
     // match all vowels in the string
-    if (this.match(/[abcde]/gi) === null) {
+    if (this.match(/[aeiou]/gi) === null) {
       return false;
     }
     return true;

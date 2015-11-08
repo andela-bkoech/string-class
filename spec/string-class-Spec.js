@@ -168,10 +168,6 @@ describe("Tests for strng class prototype", function() {
     it("expect $230000.58 to return $230,000.58", function() {
       expect("$230000.58".toCurrency()).toBe("$230,000.58");
     });
-
-    it("Throws error if value is not a currency", function() {
-      expect("Kshs. 47824HU92.9H".toCurrency()).toThrow();
-    });
   });
 
   describe("Test suite for fromCurrency() method", function() {
