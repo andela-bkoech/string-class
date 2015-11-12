@@ -20,7 +20,7 @@
     this.isString();
     // replace all lowercase letters a-z with their uppercase values
     return this.replace(/[a-z]/g, function(val) {
-      // convert to capital 97-122
+      // ascii convert to capital (97-122)
       return String.fromCharCode(val.charCodeAt() - 32);
     });
   };
@@ -35,14 +35,15 @@
 
   String.prototype.ucFirst = function() {
     this.isString();
-    return this.replace(/[a-zA-Z]{1}/, function(val) {
+    return this.replace(/^[a-z]/, function(val) {
+      // return the 
       return val.toUpper();
     });
   };
 
   String.prototype.isQuestion = function() {
     this.isString();
-    // [a-zA-Z.;]{1,}[?]
+    // could use this instead: [a-zA-Z.;]{1,}[?]
     if (this.trim().match(/\?$/) === null) {
       return false;
     } else {
@@ -63,7 +64,7 @@
 
   String.prototype.toCurrency = function() {
     this.isString();
-    return this.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    return this.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   };
 
   String.prototype.fromCurrency = function() {
