@@ -162,11 +162,11 @@ describe("Tests for strng class prototype", function() {
     });
 
     it("expect $10000000 to return $10,000,000", function() {
-      expect("$10000000".toCurrency()).toBe("$10,000,000");
+      expect("$10000000".toCurrency()).toBe("10,000,000.00");
     });
 
-    it("expect $230000.58 to return $230,000.58", function() {
-      expect("$230000.58".toCurrency()).toBe("$230,000.58");
+    it("expect $230000.5898 to return $230,000.59", function() {
+      expect("$230000.5898".toCurrency()).toBe("230,000.59");
     });
   });
 
